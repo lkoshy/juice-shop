@@ -10,7 +10,7 @@ exports.config = {
   ],
 
   capabilities: {
-    'browserName': 'chromium-browser'
+    'browserName': 'chrome'
   },
 
   baseUrl: 'http://localhost:3000',

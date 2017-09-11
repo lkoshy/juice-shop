@@ -6,7 +6,11 @@ node {
     }
     
     stage('Test app') {
-            sh 'echo "Tests passed"'     
+         sh 'node -v'
+         sh 'npm prune'
+         sh 'npm install'
+         sh 'npm test'
+         sh 'echo "Tests passed"'     
     }
     
     stage('Build image') {

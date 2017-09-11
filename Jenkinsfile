@@ -4,15 +4,16 @@ node {
     stage('Clone repository') {
         checkout scm
     }
-
+    
+    stage('Test app') {
+            sh 'node -v'
+            sh 'npm install'
+            sh 'npm test'
+            sh 'echo "Tests passed"'     
+    }
+    
     stage('Build image') {
         app = docker.build("lkoshy/juice-shop")
-    }
-
-    stage('Test image') {
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
     }
 
     stage('Push image') {

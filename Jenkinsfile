@@ -30,4 +30,9 @@ node {
         }*/
         sh 'echo "Docker push completed"'
     }
+    post {
+        always {
+             junit 'build/reports/*.xml'
+        }
+    }
 }

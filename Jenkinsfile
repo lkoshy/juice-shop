@@ -14,7 +14,7 @@ node {
     }
     
     stage('e2e Test') {
-         /*sh 'npm run protractor'*/
+         sh 'npm run protractor'
          sh 'echo "e2e test completed"'     
     }
     

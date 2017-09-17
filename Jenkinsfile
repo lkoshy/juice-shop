@@ -16,9 +16,9 @@ node {
     stage('E2E Test') {
          /*wrap([$class: 'Xvfb']) {
             /*sh 'npm run protractor'*/
-            sh 'npm run protractor'
-            sh 'echo "e2e test completed"'
-         }   
+        sh 'npm run protractor'
+        sh 'echo "e2e test completed"'
+            
     }
     
     stage('Build Image') {
@@ -33,9 +33,5 @@ node {
         }*/
         sh 'echo "Docker push completed"'
     }
-    post {
-        always {
-             junit 'build/reports/*.xml'
-        }
-    }
+    
 }

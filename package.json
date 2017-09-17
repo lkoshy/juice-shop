@@ -129,7 +129,7 @@
     "test": "standard && karma start karma.conf.js && nyc mocha test/server",
     "frisby": "istanbul cover ./test/apiTests.js",
     "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update",
+    "update-webdriver": "webdriver-manager update --standalone false --gecko false",
     "preprotractor": "npm run update-webdriver",
     "protractor": "node test/e2eTests.js",
     "stryker": "stryker run stryker.client-conf.js",

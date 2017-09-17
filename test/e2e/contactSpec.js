@@ -63,7 +63,7 @@ describe('/#/contact', function () {
     expectPersistedCommentToMatch(/SanitizedIFrame/)
   })
 
-  describe('challenge "xss4"', function () {
+  /*describe('challenge "xss4"', function () {
     it('should be possible to trick the sanitization with a masked XSS attack', function () {
       var EC = protractor.ExpectedConditions
 
@@ -89,7 +89,7 @@ describe('/#/contact', function () {
     })
 
     protractor.expect.challengeSolved({ challenge: 'XSS Tier 4' })
-  })
+  })*/
 
   describe('challenge "vulnerableComponent"', function () {
     it('should be possible to post known vulnerable component(s) as feedback', function () {

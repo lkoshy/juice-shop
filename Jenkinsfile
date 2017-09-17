@@ -14,22 +14,23 @@ node {
     }
     
     stage('E2E Test') {
-         wrap([$class: 'Xvfb']) {
+         /*wrap([$class: 'Xvfb']) {
             /*sh 'npm run protractor'*/
+            sh 'npm run protractor'
             sh 'echo "e2e test completed"'
          }   
     }
     
     stage('Build Image') {
-        app = docker.build("lkoshy/juice-shop")
+        /*app = docker.build("lkoshy/juice-shop")*/
         sh 'echo "Docker Image completed"'
     }
 
     stage('Push Image') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        /*docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
-        }
+        }*/
         sh 'echo "Docker push completed"'
     }
     post {

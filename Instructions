@@ -1,2 +1,3 @@
 #docker run
 sudo docker run  -p 8080:8080  --privileged   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock"   --restart=always   -v /my/jenkins/home:/var/lib/jenkins -v /dev/shm:/dev/shm lkoshy/ci
+sudo docker run  -p 8080:8080  --privileged   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock"   --restart=always   -v /my/jenkins/home:/var/lib/jenkins --shm-size=512m lkoshy/ci

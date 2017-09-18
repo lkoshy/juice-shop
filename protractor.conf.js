@@ -23,6 +23,7 @@ exports.config = {
   },
 
   onPrepare: function () {
+    browser.manage().window().setSize(1600, 1000);
     var jasmineReporters = require('jasmine-reporters')
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
       consolidateAll: true,

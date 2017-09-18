@@ -9,9 +9,7 @@ exports.config = {
     'test/e2e/*.js'
   ],
 
-  capabilities: {
-    'browserName': 'chrome'
-  },
+  capabilities: { 'browserName': 'chrome', 'chromeOptions': {'args': ['--window-size=1690,1000'] } },
 
   baseUrl: 'http://localhost:3000',
 
@@ -23,7 +21,6 @@ exports.config = {
   },
 
   onPrepare: function () {
-    browser.manage().window().setSize(1600, 1000);
     var jasmineReporters = require('jasmine-reporters')
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
       consolidateAll: true,

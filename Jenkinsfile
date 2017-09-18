@@ -18,19 +18,14 @@ node {
         }    
     }
     stage('Build Image') {
-        /*app = docker.build("lkoshy/juice-shop")*/
-        sh 'docker ps'
-        sh 'docker images'
-        sh 'docker build -t lkoshy/juice-shop .'
-        sh 'docker ps'
-        sh 'docker images'
+        app = docker.build("lkoshy/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
     stage('Push Image') {
-        /*docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
-        }*/
+        }
         sh 'echo "Docker push completed"'
     }
    /* stage('Deploy to Test Env'){

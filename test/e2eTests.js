@@ -3,7 +3,7 @@
 var spawn = require('cross-spawn')
 var colors = require('colors/safe')
 var server = require('./../server.js')
-
+jasmine.getEnv().defaultTimeoutInterval = 15000;
 server.start(function () {
   var protractor = spawn('protractor', [ 'protractor.conf.js' ])
   function logToConsole (data) {

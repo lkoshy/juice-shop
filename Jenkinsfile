@@ -18,7 +18,12 @@ node {
         }    
     }
     stage('Build Image') {
-        app = docker.build("lkoshy/juice-shop")
+        /*app = docker.build("lkoshy/juice-shop")*/
+        sh 'docker ps'
+        sh 'docker images'
+        sh 'docker build -t lkoshy/juice-shop .'
+        sh 'docker ps'
+        sh 'docker images'
         sh 'echo "Docker Image completed"'
     }
     stage('Push Image') {

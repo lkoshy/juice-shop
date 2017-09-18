@@ -1,3 +1,15 @@
-#docker run
+#get ci image
+sudo docker pull lkoshy/ci
+
+#run ci image
 sudo docker run  -p 8080:8080  --privileged   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock"   --restart=always   -v /my/jenkins/home:/var/lib/jenkins -v /dev/shm:/dev/shm lkoshy/ci
-sudo docker run  -p 8080:8080  --privileged   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock"   --restart=always   -v /my/jenkins/home:/var/lib/jenkins --shm-size=512m lkoshy/ci
+#sudo docker run  -p 8080:8080  --privileged   -e DOCKER_DAEMON_ARGS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock"   --restart=always   -v /my/jenkins/home:/var/lib/jenkins --shm-size=512m lkoshy/ci
+
+#open jenkins localhost:8080
+#Install default jenkins plugins
+#Istall Xvfb plugin
+#Configure Xvfb in Global Tool Configurations
+#Set Docker System Credentials for push to hub - name "docker-hub-credentials"
+
+#Create new pipeline job..refer the git url
+

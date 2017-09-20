@@ -1,4 +1,4 @@
-FROM node:6-alpine
+FROM node:6.11.3
 MAINTAINER Bjoern Kimminich <bjoern.kimminich@owasp.org>
 LABEL version="4.2.2"
 RUN apk update && apk add git

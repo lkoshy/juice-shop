@@ -150,5 +150,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('minify', [ 'clean:dist', 'concat:js', 'uglify:js', 'ngtemplates:juiceShop', 'concat:dist', 'uglify:dist', 'clean:temp' ])
   grunt.registerTask('package', [ 'clean:pckg', 'minify', 'compress:pckg' ])
-  grunt.registerTask('docker', [ 'replace:dockerfile', 'replace:node6', 'replace:node4', 'replace:node8' ])
+  /*grunt.registerTask('docker', [ 'replace:dockerfile', 'replace:node6', 'replace:node4', 'replace:node8' ])*/
 }

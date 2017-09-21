@@ -19,11 +19,11 @@ node {
         }
         sh 'echo "e2e test completed"'
     }
-    stage('Build Image') {
+    stage('Docker Build') {
         app = docker.build("lkoshy/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
-    stage('Push Image') {
+    stage('Push to Docker Hub') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")

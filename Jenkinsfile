@@ -46,6 +46,6 @@ node {
     }
    /* stage('Deploy to Test Env'){
         docker.run("lkoshy/juice-shop")
-    }
+    } */
          
 }

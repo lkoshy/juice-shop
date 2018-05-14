@@ -6,11 +6,11 @@ node {
     } 
     stage('Unit Test App') {
          sh 'node -v'
-         sh 'npm prune'
-         sh 'npm install'
-         sh 'npm test'
-         sh 'echo "Unit test completed"'  
-         sh 'rm -rf node_modules'
+         //sh 'npm prune'
+         //sh 'npm install'
+         //sh 'npm test'
+         //sh 'echo "Unit test completed"'  
+         //sh 'rm -rf node_modules'
     }
     stage('E2E Test') {         
         wrap([$class: 'Xvfb', autoDisplayName: true, 'timeout': 15]) {

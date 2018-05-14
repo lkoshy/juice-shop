@@ -37,6 +37,19 @@ node {
         app = docker.build("lkoshy/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
+    
+    stage ('Owasp ZAP scanning'){        
+        // Security testing stage to run security tests.        
+        // target URL is https://one.onp-dev1.nixu.fi        
+        echo "Owasp ZAP scanning"        
+        sh '''
+        sudo docker ps        
+        chmod 755 security_automation/owasp-zap-docker.sh        
+        ./security_automation/owasp-zap-docker.sh http://localhost:3000        '''        
+        echo "OWASP ZAP scanning - Completed"        
+        archiveArtifacts allowEmptyArchive: false, artifacts: '**/zap-report.html', onlyIfSuccessful: true    
+    }
+    
     stage('Push to Docker Hub') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")

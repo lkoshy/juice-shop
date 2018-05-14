@@ -38,6 +38,37 @@ node {
         sh 'echo "Docker Image completed"'
     }
     
+    stage('Kiuwan analyzer') {
+        withCredentials([usernamePassword(credentialsId: '',
+                        passwordVariable: 'PASSWORD',
+                        usernameVariable: 'USERNAME')]) {
+                            def returnCode = bat(script: "${AGENT_HOME}/bin/agent.cmd -s \"${WORKSPACE}\" -n \"appPipeline\" -cr \"CR001\" -l ${BUILD_NUMBER} -wr --user \"$USERNAME\" --pass \"$PASSWORD\"",
+                            returnStatus: true)
+                             
+                         switch(returnCode){
+                                case 0:
+                                    break
+                                case 14:
+                                    currentBuild.result = 'UNSTABLE'
+                                    break
+                                case 1:
+                                case 10:
+                                    currentBuild.result = 'FAILURE'
+                                    break
+                                case 11:
+                                case 12:
+                                    currentBuild.result = 'NOT_BUILT'
+                                    break
+                                case 13:
+                                    currentBuild.result = 'ABORTED'
+                                    break
+                                default:
+                                    currentBuild.result = 'NOT_BUILT'
+                                }
+                        }
+        echo "Kiuwan Analyzer- Completed"        
+        archiveArtifacts allowEmptyArchive: false, artifacts: '**/analyzer.html', onlyIfSuccessful: true 
+    }
     stage ('Owasp ZAP scanning'){        
         // Security testing stage to run security tests.        
         // target URL is https://one.onp-dev1.nixu.fi        

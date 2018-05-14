@@ -39,7 +39,7 @@ node {
     }
     
     stage('Kiuwan analyzer') {
-        withCredentials([usernamePassword(credentialsId: '',
+        withCredentials([usernamePassword(credentialsId: 'kiuwan_credential',
                         passwordVariable: 'PASSWORD',
                         usernameVariable: 'USERNAME')]) {
                             def returnCode = bat(script: "${AGENT_HOME}/bin/agent.cmd -s \"${WORKSPACE}\" -n \"appPipeline\" -cr \"CR001\" -l ${BUILD_NUMBER} -wr --user \"$USERNAME\" --pass \"$PASSWORD\"",

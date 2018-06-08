@@ -37,7 +37,7 @@ node {
         app = docker.build("lkoshy/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
-}
+
     
     /*
     stage('Kiuwan analyzer') {
